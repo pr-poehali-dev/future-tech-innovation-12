@@ -1,8 +1,11 @@
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 export default function Promo() {
   const container = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(textRef, { once: true, margin: "-80px" });
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end start"],
@@ -18,21 +21,44 @@ export default function Promo() {
       <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
         <motion.div style={{ y }} className="relative w-full h-full">
           <img
-            src="/images/spiral-circles.jpg"
-            alt="Abstract spiral circles"
+            src="https://cdn.poehali.dev/files/b92ec131-1444-4f52-bdce-592d07ad698c.jpg"
+            alt="Класс 4С"
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/70 via-indigo-800/60 to-amber-600/50" />
         </motion.div>
       </div>
 
-      <h3 className="absolute top-12 right-6 text-white uppercase z-10 text-sm md:text-base lg:text-lg">
-        Анатомия возможностей
-      </h3>
+      <div ref={textRef} className="relative z-10 px-6 max-w-4xl mx-auto text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-amber-300 uppercase tracking-[0.3em] text-sm font-semibold mb-6"
+        >
+          #4С_непросто_класс
+        </motion.p>
 
-      <p className="absolute bottom-12 right-6 text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-5xl z-10">
-        Каждая секция — рамка для твоей истории. Формируй её, миксуй и позволь контенту
-        литься в неожиданные паттерны, заставляя листать дальше.
-      </p>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-snug mb-10"
+        >
+          Приходите разделить с нами этот трогательный и немного волнительный день.
+          Будет душевно, весело и по-настоящему празднично!
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.45 }}
+          className="text-white/80 text-lg md:text-xl"
+        >
+          Ведь <span className="text-amber-300 font-semibold">#4С_непросто_класс</span>,{" "}
+          а значит, просто так мы не прощаемся!
+        </motion.p>
+      </div>
     </div>
   );
 }
