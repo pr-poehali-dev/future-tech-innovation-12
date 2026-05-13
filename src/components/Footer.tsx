@@ -101,10 +101,7 @@ export default function Footer() {
 
             <div className="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
               <div>
-                <h1 className="text-[14vw] sm:text-[12vw] lg:text-[10vw] leading-[0.8] mt-4 sm:mt-6 lg:mt-10 text-white font-bold tracking-tight">
-                  4 «С»
-                </h1>
-                <p className="text-purple-300 text-sm sm:text-base mt-2">С любовью, ваш 4 «С» ❤️</p>
+                <p className="text-white font-bold text-[7vw] sm:text-[5vw] lg:text-[4vw] leading-tight mt-4 sm:mt-6 lg:mt-10">С любовью, ваш 4 «С» ❤️</p>
               </div>
               <p className="text-white/50 text-xs sm:text-sm">Выпускной · 2026</p>
             </div>
