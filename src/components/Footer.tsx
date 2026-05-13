@@ -10,7 +10,7 @@ export default function Footer() {
             className="py-4 sm:py-6 lg:py-8 px-4 sm:px-6 h-full w-full flex flex-col justify-between overflow-hidden relative"
             style={{ background: "linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #7c3aed 100%)" }}
           >
-            {/* Декоративная сцена — сердце и самолётик на весь фон */}
+            {/* Самолётик, чей путь рисует сердце */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
               viewBox="0 0 800 600"
@@ -18,70 +18,65 @@ export default function Footer() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Большое сердце — нарисовано "от руки", чёрной ручкой */}
+              <defs>
+                <linearGradient id="trailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#f472b6" />
+                  <stop offset="50%" stopColor="#fb923c" />
+                  <stop offset="100%" stopColor="#a78bfa" />
+                </linearGradient>
+              </defs>
+
+              {/* Путь самолётика — форма сердца, центр экрана */}
               <path
-                d="M400 480 C340 440 180 360 160 240 C148 170 190 110 250 108 C295 106 335 130 360 165 C375 185 388 210 400 235 C412 210 425 185 440 165 C465 130 505 106 550 108 C610 110 652 170 640 240 C618 360 460 440 400 480 Z"
-                stroke="white"
+                id="heartPath"
+                d="M400 195 C400 175 378 148 350 148 C308 148 280 185 280 222 C280 298 355 362 400 402 C445 362 520 298 520 222 C520 185 492 148 450 148 C422 148 400 175 400 195 Z"
+                stroke="rgba(255,255,255,0.18)"
+                strokeWidth="1.5"
+                strokeDasharray="5 8"
+                strokeLinecap="round"
+              />
+
+              {/* Цветной след — градиентная обводка поверх пунктира */}
+              <path
+                d="M400 195 C400 175 378 148 350 148 C308 148 280 185 280 222 C280 298 355 362 400 402 C445 362 520 298 520 222 C520 185 492 148 450 148 C422 148 400 175 400 195 Z"
+                stroke="url(#trailGradient)"
                 strokeWidth="2.5"
                 strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="rgba(239,68,68,0.12)"
-                opacity="0.7"
-              />
-              {/* Внутренняя штриховка сердца — эффект "нарисованного" */}
-              <path
-                d="M370 200 C355 185 335 178 315 182"
-                stroke="white"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                opacity="0.35"
-              />
-              <path
-                d="M360 220 C340 205 315 200 295 205"
-                stroke="white"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                opacity="0.3"
+                strokeDasharray="80 9999"
+                opacity="0.75"
               />
 
-              {/* Пунктирная траектория самолётика */}
-              <path
-                d="M80 480 C150 400 200 350 280 300 C340 260 380 240 400 235 C420 230 460 220 520 180 C580 140 650 100 720 60"
-                stroke="white"
-                strokeWidth="1.5"
-                strokeDasharray="6 8"
-                strokeLinecap="round"
-                opacity="0.4"
-              />
-
-              {/* Бумажный самолётик в полёте — в точке траектории */}
-              <g transform="translate(510,182) rotate(-38)">
-                {/* Корпус */}
-                <path
-                  d="M0 0 L28 -8 L0 8 Z"
-                  fill="white"
-                  opacity="0.95"
-                />
-                {/* Нижнее крыло */}
-                <path
-                  d="M0 0 L16 10 L0 8 Z"
-                  fill="rgba(251,191,36,0.9)"
-                />
-                {/* Верхнее крыло */}
-                <path
-                  d="M0 0 L16 -10 L0 -8 Z"
-                  fill="rgba(167,139,250,0.85)"
-                />
-                {/* Складка по центру */}
-                <line x1="0" y1="0" x2="20" y2="-2" stroke="rgba(0,0,0,0.2)" strokeWidth="0.8" />
+              {/* Самолётик — на вершине сердца, летит вправо */}
+              <g transform="translate(451,143) rotate(25)">
+                {/* корпус */}
+                <path d="M0 0 L26 -6 L0 7 Z" fill="white" opacity="0.97" />
+                {/* верхнее крыло */}
+                <path d="M0 0 L15 -12 L0 -6 Z" fill="#a78bfa" opacity="0.92" />
+                {/* нижнее крыло */}
+                <path d="M0 0 L15 9 L0 7 Z" fill="#fbbf24" opacity="0.92" />
+                {/* складка */}
+                <line x1="2" y1="0" x2="20" y2="-1.5" stroke="rgba(0,0,0,0.18)" strokeWidth="0.8" />
               </g>
 
-              {/* Маленькие звёздочки / искры вокруг */}
-              <circle cx="560" cy="150" r="2" fill="white" opacity="0.6" />
-              <circle cx="540" cy="165" r="1.5" fill="rgba(251,191,36,0.8)" />
-              <circle cx="570" cy="170" r="1.5" fill="white" opacity="0.5" />
-              <circle cx="350" cy="280" r="1.5" fill="white" opacity="0.4" />
-              <circle cx="280" cy="310" r="2" fill="rgba(167,139,250,0.7)" />
+              {/* Искры за самолётиком */}
+              <circle cx="440" cy="147" r="2.5" fill="#f472b6" opacity="0.8" />
+              <circle cx="427" cy="145" r="1.5" fill="white" opacity="0.6" />
+              <circle cx="415" cy="148" r="1" fill="#fbbf24" opacity="0.7" />
+
+              {/* Маленькое сердечко в нижней точке траектории */}
+              <path
+                d="M400 412 C398 408, 392 404, 392 399 C392 394, 396 391, 400 395 C404 391, 408 394, 408 399 C408 404, 402 408, 400 412 Z"
+                fill="#f472b6"
+                opacity="0.95"
+              />
+
+              {/* Рассыпанные искорки */}
+              <circle cx="282" cy="230" r="1.5" fill="white" opacity="0.45" />
+              <circle cx="518" cy="235" r="1.5" fill="white" opacity="0.45" />
+              <circle cx="310" cy="175" r="2" fill="#f472b6" opacity="0.5" />
+              <circle cx="490" cy="175" r="2" fill="#f472b6" opacity="0.5" />
+              <circle cx="340" cy="370" r="1.5" fill="#fbbf24" opacity="0.55" />
+              <circle cx="460" cy="370" r="1.5" fill="#fbbf24" opacity="0.55" />
             </svg>
 
             {/* Контент поверх */}
