@@ -33,7 +33,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-sm md:text-base uppercase tracking-[0.3em] mb-4 text-yellow-300 font-medium"
         >
-          Приглашение
+          Приглашение от
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
