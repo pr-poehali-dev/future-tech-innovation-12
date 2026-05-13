@@ -35,11 +35,9 @@ const units = [
 ];
 
 const program = [
-  { time: "12:40", text: "Сбор гостей и торжественное начало" },
-  { time: "13:00", text: "Выступления учеников и поздравления" },
-  { time: "14:00", text: "Вручение дипломов об окончании начальной школы" },
-  { time: "14:30", text: "Памятное фото всего класса" },
-  { time: "15:00", text: "Праздничное угощение и свободное общение" },
+  { time: "12:40", text: "Сбор гостей" },
+  { time: "12:50", text: "Торжественное начало и выступление учеников" },
+  { time: "14:20", text: "Памятное фото всего класса" },
 ];
 
 export default function Countdown() {
@@ -105,7 +103,7 @@ export default function Countdown() {
         className="w-full max-w-2xl"
       >
         <p className="text-amber-300 uppercase tracking-[0.3em] text-xs sm:text-sm font-semibold mb-8 text-center">
-          Программа вечера
+          Программа
         </p>
         <div className="flex flex-col gap-0">
           {program.map((item, i) => (

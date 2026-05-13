@@ -30,11 +30,24 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
-              <div>
+              <div className="relative">
+                <svg
+                  className="absolute -top-6 -right-4 sm:-right-8 opacity-20 rotate-[-20deg]"
+                  width="120"
+                  height="110"
+                  viewBox="0 0 120 110"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M60 100C60 100 8 65 8 33C8 17 20 6 34 6C44 6 53 12 60 21C67 12 76 6 86 6C100 6 112 17 112 33C112 65 60 100 60 100Z"
+                    fill="#ef4444"
+                  />
+                </svg>
                 <h1 className="text-[14vw] sm:text-[12vw] lg:text-[10vw] leading-[0.8] mt-4 sm:mt-6 lg:mt-10 text-white font-bold tracking-tight">
                   4 «С»
                 </h1>
-                <p className="text-purple-300 text-sm sm:text-base mt-2">С любовью, ваш 4 «С» 💛</p>
+                <p className="text-purple-300 text-sm sm:text-base mt-2">С любовью, ваш 4 «С» ❤️</p>
               </div>
               <p className="text-white/50 text-xs sm:text-sm">Выпускной · 2026</p>
             </div>
